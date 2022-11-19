@@ -5,22 +5,22 @@ import { ElementDialogComponent } from 'src/app/shared/element-dialog/element-di
 
 export interface CadastroVeiculo {
   modelo: string;
-  ano: number;
+  codigo: number;
   cor: string;
   marca: string;
 }
 
 const ELEMENT_DATA: CadastroVeiculo[] = [
-  { ano: 1, modelo: 'Gol', cor: "Preto", marca: 'VW' },
-  { ano: 2, modelo: 'Vectra', cor: "Prata", marca: 'GM' },
-  { ano: 3, modelo: 'Astra', cor: "Branco", marca: 'GM' },
-  { ano: 4, modelo: 'Passat', cor: "Vermelho", marca: 'VW' },
-  { ano: 5, modelo: 'Civic', cor: "Verde", marca: 'Honda' },
-  { ano: 6, modelo: 'Hilux', cor: "Azul", marca: 'Toyota' },
-  { ano: 7, modelo: 'CRV', cor: "Branco", marca: 'Honda' },
-  { ano: 8, modelo: 'City', cor: "Branco", marca: 'Honda' },
-  { ano: 9, modelo: 'Tiguan', cor: "Prata", marca: 'VW' },
-  { ano: 10, modelo: 'Amarok', cor: "Verde", marca: 'VW' },
+  { codigo: 1, modelo: 'Gol', cor: "Preto", marca: 'VW' },
+  { codigo: 2, modelo: 'Vectra', cor: "Prata", marca: 'GM' },
+  { codigo: 3, modelo: 'Astra', cor: "Branco", marca: 'GM' },
+  { codigo: 4, modelo: 'Passat', cor: "Vermelho", marca: 'VW' },
+  { codigo: 5, modelo: 'Civic', cor: "Verde", marca: 'Honda' },
+  { codigo: 6, modelo: 'Hilux', cor: "Azul", marca: 'Toyota' },
+  { codigo: 7, modelo: 'CRV', cor: "Branco", marca: 'Honda' },
+  { codigo: 8, modelo: 'City', cor: "Branco", marca: 'Honda' },
+  { codigo: 9, modelo: 'Tiguan', cor: "Prata", marca: 'VW' },
+  { codigo: 10, modelo: 'Amarok', cor: "Verde", marca: 'VW' },
 ];
 
 @Component({
@@ -31,7 +31,7 @@ const ELEMENT_DATA: CadastroVeiculo[] = [
 export class HomeComponent implements OnInit {
   @ViewChild(MatTable)
   table!: MatTable<any>;
-  displayedColumns: string[] = ['ano', 'modelo', 'cor', 'marca', 'actions'];
+  displayedColumns: string[] = ['codigo', 'modelo', 'cor', 'marca', 'actions'];
   dataSource = ELEMENT_DATA;
 
   constructor(public dialog: MatDialog) { }
@@ -43,12 +43,12 @@ export class HomeComponent implements OnInit {
     const dialogRef = this.dialog.open(ElementDialogComponent, {
       width: '280px',
       data: element === null ? {
-        ano: null,
+        codigo: null,
         modelo: '',
         cor: '',
         marca: ''
       } : {
-        ano: element.ano,
+        codigo: element.codigo,
         modelo: element.modelo,
         cor: element.cor,
         marca: element.marca
@@ -57,8 +57,8 @@ export class HomeComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       if (result !== undefined) {
-        if (this.dataSource.map(p => p.ano).includes(result.ano)) {
-          this.dataSource[result.ano - 1] = result;
+        if (this.dataSource.map(p => p.codigo).includes(result.codigo)) {
+          this.dataSource[result.codigo - 1] = result;
           this.table.renderRows();
         } else {
           this.dataSource.push(result);
@@ -72,8 +72,8 @@ export class HomeComponent implements OnInit {
     this.openDialog(element);
   }
 
-  deleteElement(ano: number): void {
-    this.dataSource = this.dataSource.filter(p => p.ano !== ano);
+  deleteElement(codigo: number): void {
+    this.dataSource = this.dataSource.filter(p => p.codigo !== codigo);
   }
 
 } 
