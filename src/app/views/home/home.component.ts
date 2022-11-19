@@ -1,14 +1,8 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatTable } from '@angular/material/table';
+import { CadastroVeiculo } from 'src/app/models/CadastroVeiculo';
 import { ElementDialogComponent } from 'src/app/shared/element-dialog/element-dialog.component';
-
-export interface CadastroVeiculo {
-  modelo: string;
-  codigo: number;
-  cor: string;
-  marca: string;
-}
 
 const ELEMENT_DATA: CadastroVeiculo[] = [
   { codigo: 1, modelo: 'Gol', cor: "Preto", marca: 'VW' },

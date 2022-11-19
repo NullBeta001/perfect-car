@@ -1,5 +1,5 @@
 import { Component, Inject, OnInit } from '@angular/core';
-import { CadastroVeiculo } from 'src/app/views/home/home.component';
+import { CadastroVeiculo } from 'src/app/models/CadastroVeiculo';
 import { MatDialog, MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 
 @Component({
