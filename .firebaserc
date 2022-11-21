@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "perfectcar-3b99d": {
+      "hosting": {
+        "perfect-car": [
+          "perfectcar-3b99d"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "perfectcar-3b99d"
+  }
+}

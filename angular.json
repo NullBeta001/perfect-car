@@ -99,6 +99,16 @@
             ],
             "scripts": []
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {
+            "prerender": false,
+            "ssr": false,
+            "browserTarget": "perfect-car:build:production",
+            "firebaseProject": "perfectcar-3b99d",
+            "firebaseHostingSite": "perfectcar-3b99d"
+          }
         }
       }
     }
