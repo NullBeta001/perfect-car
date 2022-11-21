@@ -3,6 +3,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { MatTable } from '@angular/material/table';
 import { CadastroVeiculo } from 'src/app/models/CadastroVeiculo';
 import { ElementDialogComponent } from 'src/app/shared/element-dialog/element-dialog.component';
+import { AuthService } from 'src/app/shared/auth.service';
 
 const ELEMENT_DATA: CadastroVeiculo[] = [
   { codigo: 1, modelo: 'Gol', cor: "Preto", marca: 'VW' },
@@ -28,9 +29,13 @@ export class HomeComponent implements OnInit {
   displayedColumns: string[] = ['codigo', 'modelo', 'cor', 'marca', 'actions'];
   dataSource = ELEMENT_DATA;
 
-  constructor(public dialog: MatDialog) { }
+  constructor(public dialog: MatDialog, private auth : AuthService) { }
 
   ngOnInit(): void {
+  }
+
+  register() {
+    this.auth.logout();
   }
 
   openDialog(element: CadastroVeiculo | null): void {
