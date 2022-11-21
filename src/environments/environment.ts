@@ -4,6 +4,8 @@
 
 export const environment = {
     production: false,
+    API: 'http://localhost:8080/',
+    BASE_URL: '/api',
     firebase: {
         projectId: 'perfectcar-3b99d',
         appId: '1:259335628096:web:2fb129afed1484c05a86a5',
